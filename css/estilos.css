@@ -1,0 +1,501 @@
+/* Reseteo de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Afacad Flux', sans-serif;  /* Cambiar fuente de los párrafos */
+
+}
+
+/* Estilo del cuerpo */
+body {
+    padding: 2rem;
+    height: 100vh;
+    padding-bottom: 50px; 
+    letter-spacing: 0.07em;
+    line-height: 1.2;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+/* Estilo para el título principal */
+h1 { 
+    text-align: center;
+    color: #01B6D1;
+    margin-bottom: 2rem;
+    font-size: 3.4rem;
+    font-weight: 600;
+    animation: fadeIn 2s ease-in-out;
+    font-family: 'Titan One', serif;
+}
+    p {
+    font-family: 'Afacad Flux', sans-serif;  /* Cambiar fuente de los párrafos */
+}
+
+/*h1 {
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+h1 {
+    font-family: 'Concert One', cursive;
+}
+
+h1 {
+    font-family: 'Titan One', serif;
+}
+
+h1 {
+    font-family: 'Bungee', cursive;
+}
+
+/* Animación fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Estilo para los subtítulos */
+h3 {
+    margin-top: 5px; 
+    margin-bottom: 18px; 
+    font-size: 18px;
+    color: #005f73;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+/* Estilos del calendario */
+.calendario {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+        
+}
+
+/* Estilos para cada día */
+.dia {
+    
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden; /* Elimina cualquier contenido que se desborde */
+}
+
+/* Estilo de la carta (el cuadro que se voltea) */
+.carta {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s ease-in-out, opacity 0.3s ease; /* Transición suave sin perspectiva */
+}
+
+/* Frente del cuadro */
+.frente {
+    background-color: #95d9e5;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    text-align: center;
+    position: absolute;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease; /* Transición suave */
+}
+
+/* Dorso del cuadro (cuando se voltea) */
+.dorso {
+    background-color: #01B6D1;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    text-align: left;
+    position: absolute;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Inicialmente no visible */
+}
+
+/* Clase que se añade cuando el cuadro está volteado */
+.carta.volteada .frente {
+    opacity: 0; /* Desaparece el frente */
+}
+
+/* Al hacer clic, el cuadro se voltea */
+.carta.volteada .dorso {
+    opacity: 1; /* Muestra el dorso */
+}
+
+/* Estilo de los títulos en cada día */
+.dia h2 {
+    color: #005f73;
+    margin-bottom: 1px;
+    font-size: 37px;
+}
+
+/* Estilo de los párrafos dentro de cada día */
+.dia p {
+    color: #005f73;
+    margin-bottom: 5px;
+    font-size: 19px;
+    line-height: 2.7; /* Espaciado entre líneas */
+    text-align: justify; /* Alinear el texto */
+    font-family: 'Dancing Script';
+}
+
+/* Resalta los días especiales */
+.destacado {
+    font-weight: bold; /* Negrita */
+    padding: 10px; /* Espaciado interno */
+}
+
+/* Animación de hover en los cuadros (cuando el ratón pasa por encima) */
+.dia:hover {
+    transform: scale(0.95); /* Reduce el tamaño al 95% */
+}
+
+.imagen-superior {
+    position: absolute;
+    top: calc(228% - 1px); /* Coloca la imagen justo encima del footer */
+    left: 35%; /* Mueve la imagen un poco a la derecha */
+    width: 100%;    
+    height: auto; /* Mantén la proporción de la imagen */
+    z-index: 5; /* Asegura que quede encima del footer y los triángulos */
+    transform: scale(0.4);
+}
+footer {
+    position: initial;
+    width: 110%;
+    height: 20px; /* Reducir la altura del footer */
+    background: linear-gradient(150deg, #95D8E5, #01B6D1, #45D7ED); /* Fondo base */
+    overflow: hidden; /* Asegura que no sobresalgan las formas */
+    margin-top: 80px;
+}
+
+.triangulo {
+    position: absolute;
+    width: 50%;
+    height: 20%;
+    background: linear-gradient(150deg, #01B6D1, #45D7ED); /* Color del nuevo triángulo */
+    clip-path: polygon(0 0, 0% 30%, 175% 100%, 0 100%);
+    z-index: 2; /* Este triángulo estará encima de triangulo1 */
+
+}
+  
+.triangulo1 {
+    position: absolute;
+    width: 100%;
+    height: 20%; /* Mantén la altura en 100% para que se adapte al contenedor */
+    background: linear-gradient(150deg, #95D8E5, #B6E4ED); /* Color de la forma 1 */
+    z-index: 1; /* Superposición */
+    clip-path: polygon(0 0, 60% 60%, 100% 100%, 0 100%);
+}
+  
+.triangulo2 {
+    position: absolute;
+    width: 100%;
+    height: 20%; /* Mantén la altura en 100% */
+    background: linear-gradient(150deg,#01B6D1, #45D7ED); /* Color de la forma 2 */
+    clip-path: polygon(100% 60%, 50% 70%, 100% 100%);     
+    z-index: 3;
+}
+  
+.triangulo3 {
+    position: absolute;
+    width: 100%;
+    height: 20%; /* Mantén la altura en 100% */
+    background: linear-gradient(150deg, #387DA3, #4F90B4); /* Color de la forma 3 */
+    clip-path: polygon(0 100%, 50% 70%, 100% 100%);
+    z-index: 4;
+}
+/* Estilo para el header que contiene los botones */
+/* Estilo para el header que contiene los botones */
+.header-botones {
+    width: 100%;  /* Asegura que el header ocupe todo el ancho */
+    background-color: #fff;  /* Fondo para diferenciar el header */
+    padding: 20px 0;  /* Espacio interno arriba y abajo */
+    border-bottom: 2px solid #005f73;  /* Línea inferior para separar */
+    margin-bottom: 30px;  /* Espacio abajo del header */
+    box-sizing: border-box;  /* Asegura que el padding no afecte el ancho total */
+}
+
+/* Estilo para los botones (íconos sociales) */
+.botones {
+    display: flex;
+    justify-content: center;  /* Centrado de los botones */
+    gap: 90px;  /* Mayor espacio entre los botones */
+}
+
+.botones a {
+    text-decoration: none;
+    font-size: 28px;  /* Tamaño de icono ajustado a 28px */
+    width: 55px;  /* Tamaño del botón ajustado a 55px */
+    height: 55px;  /* Tamaño del botón ajustado a 55px */
+    line-height: 55px;  /* Centrado vertical ajustado */
+    text-align: center;
+    background: #005f73;
+    color: #B6E4ED;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease-in-out;
+    display: flex;
+    justify-content: center;  /* Centrar horizontalmente el icono */
+    align-items: center;  /* Centrar verticalmente el icono */
+}
+
+.botones a:hover {
+    transform: scale(1.2);  /* Efecto de aumento al pasar el ratón */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .botones {
+        justify-content: center;  /* Centrar los botones en pantallas pequeñas */
+    }
+
+    .botones a {
+        width: 50px;  /* Ajuste tamaño botón en pantallas pequeñas */
+        height: 50px;  /* Ajuste tamaño botón en pantallas pequeñas */
+        font-size: 22px;  /* Ajuste tamaño de fuente en pantallas pequeñas */
+    }
+}
+
+
+
+/*
+.footer {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background: linear-gradient(150deg, #95D8E5, #01B6D1, #387DA3);
+    clip-path: polygon(0 0, 60% 60%, 100% 100%, 0 100%);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    margin-top: 80px;
+}
+
+.footer-logo {
+    width: 150px;
+    height: auto;
+}
+
+
+
+
+
+/** {
+    padding: 0;
+    margin: 10%;
+    box-sizing: border-box;
+
+}
+body {
+    padding: 2rem;
+    height: 100vh;
+    font-family: 'Baloo 2', sans-serif;
+    padding-bottom: 50px; 
+    letter-spacing: 0.07em;
+    line-height: 1.2;
+    
+}
+h1 { 
+    text-align: center;
+    color: #01B6D1;
+    margin-bottom: 2rem;
+    font-size: 3.4rem;
+    font-weight: 600;
+    animation: fadeIn 2s ease-in-out;
+   }
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+h3 {
+    margin-top: 5px; 
+    margin-bottom: 18px; 
+    font-size: 13px;
+    color: #005f73;
+
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+
+
+.calendario {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.dia {
+    position: relative;
+    background-color: #95d9e5;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 450px;
+}
+
+.dia h2 {
+    color: #005f73;
+    margin-bottom: 1px;
+    font-size: 32px;
+}
+
+.dia p {
+    color: #005f73;
+    margin-bottom: 5px;
+    font-size: 14px;
+    line-height: 2.7; 
+    text-align: justify;  
+    font-family: 'Dancing Script';
+
+
+
+}
+
+.destacado {
+    font-weight: bold; 
+    padding: 10px; 
+}
+.dia:hover {
+    transform: scale(0.95); 
+}
+
+
+.btn-confirmar {
+    display: inline-block;
+    padding: 10px 30px;
+    margin-top: 10px;
+    background-color: #005f73;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: auto;
+    position: absolute; 
+    left: 50%; 
+    bottom: 15px; 
+    transform: translateX(-50%);
+
+}
+
+
+.btn-confirmar:hover {
+    background-color: #2c82c9;
+    transform: scale(1.05) translateX(-50%);
+}
+
+
+.btn-confirmar:active {
+    transform: scale(0.95); 
+    background-color: #1a5f92;
+}
+/*
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    font-family: 'Baloo 2', sans-serif;
+}
+
+h1 { 
+    text-align: center;
+    color: #01B6D1;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.slider-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.dia {
+    min-width: 100%;
+    background-color: #95d9e5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dia h2 {
+    color: #005f73;
+    margin-bottom: 10px;
+}
+
+.dia p {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+button.prev { left: 10px; }
+button.next { right: 10px; }
+*/
