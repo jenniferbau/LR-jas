@@ -31,27 +31,7 @@ h1 {
     animation: fadeIn 2s ease-in-out;
     font-family: 'Titan One', serif;
 }
-    p {
-    font-family: 'Afacad Flux', sans-serif;  /* Cambiar fuente de los párrafos */
-}
 
-/*h1 {
-    font-family: 'Rubik Mono One', sans-serif;
-}
-
-h1 {
-    font-family: 'Concert One', cursive;
-}
-
-h1 {
-    font-family: 'Titan One', serif;
-}
-
-h1 {
-    font-family: 'Bungee', cursive;
-}
-
-/* Animación fade-in */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -217,58 +197,113 @@ footer {
     clip-path: polygon(0 100%, 50% 70%, 100% 100%);
     z-index: 4;
 }
-/* Estilo para el header que contiene los botones */
-/* Estilo para el header que contiene los botones */
 .header-botones {
-    width: 100%;  /* Asegura que el header ocupe todo el ancho */
-    background-color: #fff;  /* Fondo para diferenciar el header */
-    padding: 20px 0;  /* Espacio interno arriba y abajo */
-    border-bottom: 2px solid #005f73;  /* Línea inferior para separar */
-    margin-bottom: 30px;  /* Espacio abajo del header */
-    box-sizing: border-box;  /* Asegura que el padding no afecte el ancho total */
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 0;
+    border-bottom: 2px solid #005f73;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-/* Estilo para los botones (íconos sociales) */
 .botones {
     display: flex;
-    justify-content: center;  /* Centrado de los botones */
-    gap: 90px;  /* Mayor espacio entre los botones */
+    justify-content: center;
+    gap: 30px;
 }
 
 .botones a {
     text-decoration: none;
-    font-size: 28px;  /* Tamaño de icono ajustado a 28px */
-    width: 55px;  /* Tamaño del botón ajustado a 55px */
-    height: 55px;  /* Tamaño del botón ajustado a 55px */
-    line-height: 55px;  /* Centrado vertical ajustado */
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
     text-align: center;
     background: #005f73;
     color: #B6E4ED;
     border-radius: 50%;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    transition: all 0.4s ease-in-out;
-    display: flex;
-    justify-content: center;  /* Centrar horizontalmente el icono */
-    align-items: center;  /* Centrar verticalmente el icono */
+    transition: transform 0.4s ease;
 }
 
 .botones a:hover {
-    transform: scale(1.2);  /* Efecto de aumento al pasar el ratón */
+    transform: scale(1.2);
 }
 
-/* Ajustes para pantallas pequeñas */
+/* Imagen fija */
+.imagen-superior {
+    position: fixed;
+    top: 50%; /* Centrar verticalmente */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translate(-50%, -50%) scale(0.5); /* Centrado exacto con escala */
+    z-index: 5;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Footer y formas */
+footer {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(150deg, #95D8E5, #01B6D1, #45D7ED);
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.triangulo,
+.triangulo1,
+.triangulo2,
+.triangulo3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.triangulo {
+    background: linear-gradient(150deg, #01B6D1, #45D7ED);
+    clip-path: polygon(0 0, 0% 30%, 175% 100%, 0 100%);
+}
+
+.triangulo1 {
+    background: linear-gradient(150deg, #95D8E5, #B6E4ED);
+    clip-path: polygon(0 0, 60% 60%, 100% 100%, 0 100%);
+}
+
+.triangulo2 {
+    background: linear-gradient(150deg, #01B6D1, #45D7ED);
+    clip-path: polygon(100% 60%, 50% 70%, 100% 100%);
+}
+
+.triangulo3 {
+    background: linear-gradient(150deg, #387DA3, #4F90B4);
+    clip-path: polygon(0 100%, 50% 70%, 100% 100%);
+}
+
+/* Responsividad */
 @media (max-width: 768px) {
     .botones {
-        justify-content: center;  /* Centrar los botones en pantallas pequeñas */
+        gap: 15px;
     }
 
     .botones a {
-        width: 50px;  /* Ajuste tamaño botón en pantallas pequeñas */
-        height: 50px;  /* Ajuste tamaño botón en pantallas pequeñas */
-        font-size: 22px;  /* Ajuste tamaño de fuente en pantallas pequeñas */
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .imagen-superior {
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+
+    footer {
+        height: 80px;
     }
 }
-
 
 
 /*
